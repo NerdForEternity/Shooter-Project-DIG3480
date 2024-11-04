@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
         }
+        //update
+            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * 3f);
+            if (transform.position.y < -8f)
     }
 
     void Shooting()
