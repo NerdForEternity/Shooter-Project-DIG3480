@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private float verticalInput;
     private float speed;
     private int lives;
+    private int score;
 
     public GameObject bullet;
 
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     {
         speed = 6f;
         lives = 3;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -48,8 +50,9 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
         }
         //update
+        if (transform.position.y < -8f){
             transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * 3f);
-            if (transform.position.y < -8f)
+        }  
     }
 
     void Shooting()
@@ -62,4 +65,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnCollision(Collision collision)
+    {
+        if (collision.gameObject.name == "Coin")
+        {
+            score += 1;
+        }
+    }
 }
