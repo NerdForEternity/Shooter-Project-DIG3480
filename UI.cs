@@ -20,8 +20,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         lifeCount = "Lives: " + lifeValue.lives;
-        // this stupid "lifeValue.lives" bit is whats breaking everything, I have absolutely no idea how to reference a variable in another script but this was my best attempt.
-        // You'll need the Unity Documentation, but also the TextMeshPro Documentation to get it to actually display in Unity
+       
         lives.text = lifeCount;
     }
 }
